@@ -412,3 +412,124 @@ body.modal-open{overflow:hidden;height:100dvh}
 
 /* Italic display helper — pair with Playfair italic */
 .italic-disp{font-style:italic;font-family:'Playfair Display'}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BRIAN'S FEEDBACK PASS — added 2026-05-06
+   1) Mobile menu typography — smaller, sans-serif (was Playfair 30px)
+   2) Hero CTAs reordered: Call primary, Request secondary, Instant tertiary link
+   3) Request-Quote form section
+   4) Masonry gallery + BlurFade
+   5) De-emphasize pricing on service pages
+   6) Instant-quote-intro lead-in
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Mobile menu fix (was way too big in Playfair Display) ─── */
+.mobile-menu{padding-top:88px}
+.mobile-menu a{font-family:'Hanken Grotesk',system-ui,sans-serif !important;font-size:18px !important;font-weight:500 !important;letter-spacing:0 !important;padding:14px 0 !important;color:var(--ink)}
+.mobile-menu a.btn{font-size:16px !important;font-weight:600 !important;padding:14px 20px !important;border:none !important;margin-top:18px !important}
+@media (min-width:560px){.mobile-menu a{font-size:20px !important}}
+
+/* ─── 2. Header / nav alignment polish ─── */
+@media (min-width:880px){.nav .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}.nav .nav-links{justify-self:center;margin:0}.nav .cta-group{justify-self:end}}
+.nav .nav-links{padding:0;list-style:none}
+
+/* ─── 3. Hero CTA tertiary link (the "Or get an AI quote" subtle link) ─── */
+.hero-instant-link{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-family:'Hanken Grotesk';font-size:13px;font-weight:500;text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:4px;text-decoration-thickness:1px;padding:8px 0;transition:color 220ms var(--ease),text-decoration-color 220ms var(--ease)}
+.hero-instant-link:hover{color:var(--blue);text-decoration-color:var(--blue)}
+.hero-instant-link .arrow{font-family:'Hanken Grotesk';transition:transform 220ms var(--ease)}
+.hero-instant-link:hover .arrow{transform:translateX(3px)}
+.hero .ctas{flex-wrap:wrap;align-items:center}
+
+/* Hero primary CTA gets a phone icon */
+.hero .btn-primary svg{margin-right:2px;flex-shrink:0}
+
+/* ─── 4. Request-Quote section (the new primary path) ─── */
+.request-quote-section{padding:clamp(64px,8vw,120px) 0;background:var(--surface-2);border-block:1px solid var(--hairline);scroll-margin-top:80px}
+.rq-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,5vw,80px);align-items:start}
+.rq-copy h2{font-size:clamp(32px,4.5vw,52px);font-family:'Playfair Display';font-weight:500;letter-spacing:-0.02em;margin:14px 0 18px;line-height:1.1}
+.rq-copy h2 em.italic-disp{font-style:italic;color:var(--blue);font-weight:400}
+.rq-copy .lede{font-size:17px;line-height:1.6;color:var(--ink-2);margin:0 0 32px;font-family:'Hanken Grotesk'}
+.rq-direct{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--hairline);padding-top:24px}
+.rq-direct-row{display:flex;align-items:center;gap:14px}
+.rq-icon{width:42px;height:42px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.rq-direct-label{display:block;font-family:'Hanken Grotesk';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:2px}
+.rq-direct-value{font-family:'Hanken Grotesk';font-size:17px;font-weight:600;color:var(--ink);transition:color 220ms var(--ease)}
+.rq-direct-value:hover{color:var(--blue)}
+
+.rq-form{background:var(--surface);border:1px solid var(--hairline);border-radius:18px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-md)}
+.rq-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rq-field{display:flex;flex-direction:column;gap:6px}
+.rq-field>span{font-family:'Hanken Grotesk';font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.rq-field input,.rq-field select,.rq-field textarea{background:var(--bg);border:1px solid var(--hairline);border-radius:10px;padding:12px 14px;font-family:'Hanken Grotesk';font-size:15px;color:var(--ink);transition:border-color 220ms var(--ease),box-shadow 220ms var(--ease);width:100%;font-weight:500}
+.rq-field input:focus,.rq-field select:focus,.rq-field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint)}
+.rq-field textarea{resize:vertical;min-height:80px;font-family:'Hanken Grotesk'}
+.rq-submit{margin-top:8px;align-self:flex-start}
+.rq-submit:active{transform:translateY(1px) scale(0.985)}
+.rq-finepr{margin:8px 0 0;font-family:'Hanken Grotesk';font-size:12px;color:var(--ink-3);font-style:italic}
+@media (max-width:880px){.rq-grid{grid-template-columns:1fr;gap:32px}.rq-row{grid-template-columns:1fr}}
+
+/* ─── 5. Instant-quote-intro lead-in (when the section appears later) ─── */
+.instant-quote-intro{padding:clamp(48px,6vw,80px) 0 0;background:var(--bg);text-align:center}
+.instant-quote-intro h2{font-size:clamp(28px,3.5vw,44px);font-family:'Playfair Display';font-weight:500;letter-spacing:-0.02em;margin:14px 0 12px;line-height:1.1}
+.instant-quote-intro h2 em.italic-disp{color:var(--blue);font-style:italic;font-weight:400}
+.instant-quote-intro .lede{max-width:600px;margin:0 auto 0;color:var(--ink-2);line-height:1.55;font-family:'Hanken Grotesk';font-size:16px}
+.instant-quote-intro+.ai-quote-section{padding-top:clamp(32px,4vw,56px)}
+
+/* ─── 6. Service-page pricing de-emphasis (Brian: "too much pricing") ─── */
+/* Keep "What affects price" list, hide the Low/Typical/High tier cards */
+.svc-pricing .svc-price-tiers{display:none !important}
+.svc-pricing{padding-block:clamp(48px,6vw,80px) !important;background:var(--bg) !important;border:0 !important}
+.svc-pricing .svc-price-left h2{font-size:clamp(24px,3vw,36px)}
+.svc-pricing .svc-price-left .lede{font-size:15px}
+.svc-pricing .svc-price-cta{margin-top:0}
+.svc-pricing .section-tag{background:var(--bg)}
+
+/* ─── 7. Masonry Gallery + BlurFade ─── */
+.gx-hero{padding:clamp(72px,10vw,128px) 0 clamp(32px,4vw,56px);text-align:center;background:linear-gradient(180deg,var(--surface-2) 0%,var(--bg) 100%);border-bottom:1px solid var(--hairline)}
+.gx-hero .eyebrow{margin-bottom:18px}
+.gx-hero h1{font-size:clamp(44px,7vw,86px);margin:0 0 16px;font-family:'Playfair Display';font-weight:500;letter-spacing:-0.02em;line-height:1.05}
+.gx-hero h1 em.italic-disp{font-style:italic;color:var(--blue);font-weight:400}
+.gx-hero .lede{margin:0 auto 32px;max-width:620px;color:var(--ink-2);line-height:1.55;font-family:'Hanken Grotesk';font-size:17px}
+.gx-filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 16px}
+.gx-filter{background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:9px 18px;font-family:'Hanken Grotesk';font-size:13px;font-weight:500;color:var(--ink-2);cursor:pointer;transition:all 220ms var(--ease)}
+.gx-filter:hover{border-color:var(--blue);color:var(--blue)}
+.gx-filter.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:var(--shadow-blue)}
+.gx-filter .count{margin-left:8px;font-family:'JetBrains Mono';font-size:11px;opacity:0.6}
+.gx-filter.active .count{opacity:0.85}
+.gx-filter:active{transform:translateY(1px) scale(0.985)}
+
+.gx-section{padding:clamp(40px,6vw,72px) 0 clamp(72px,10vw,140px);background:var(--bg)}
+.gx-masonry{column-count:3;column-gap:18px;width:92%;max-width:1320px;margin:0 auto;padding:0}
+@media (max-width:1080px){.gx-masonry{column-count:2;column-gap:14px}}
+@media (max-width:560px){.gx-masonry{column-count:1}}
+
+.gx-item{display:block;break-inside:avoid;margin-bottom:18px;border-radius:14px;overflow:hidden;border:1px solid var(--hairline);background:var(--blue-soft);position:relative;transition:transform 500ms var(--ease),box-shadow 500ms var(--ease),border-color 500ms var(--ease),opacity 800ms cubic-bezier(0.4,0,0.2,1) var(--d,0ms),filter 800ms cubic-bezier(0.4,0,0.2,1) var(--d,0ms);opacity:0;filter:blur(12px) saturate(0.5);transform:translateY(20px)}
+.gx-item.visible{opacity:1;filter:blur(0) saturate(1);transform:translateY(0)}
+.gx-item.hidden{display:none}
+.gx-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--blue-tint)}
+.gx-item img{width:100%;height:auto;display:block;transition:transform 600ms var(--ease)}
+.gx-item:hover img{transform:scale(1.04)}
+.gx-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(15,17,23,0.55) 100%);opacity:0.85;transition:opacity 400ms var(--ease);pointer-events:none}
+.gx-item:hover .gx-overlay{opacity:0.95}
+.gx-meta{position:absolute;bottom:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;pointer-events:none}
+.gx-tag{background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:'Hanken Grotesk';font-size:10.5px;font-weight:600;letter-spacing:0.12em;color:var(--ink);text-transform:uppercase;border:1px solid var(--hairline)}
+.gx-loc{background:rgba(21,43,79,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:'Hanken Grotesk';font-size:10.5px;font-weight:500;color:#fff;letter-spacing:0.06em}
+
+.gx-cta{background:var(--ink);color:#fff;padding:clamp(64px,8vw,100px) 0;position:relative;overflow:hidden;text-align:center}
+.gx-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(21,43,79,0.40),transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(184,148,63,0.16),transparent 55%);pointer-events:none}
+.gx-cta .wrap{position:relative;z-index:2}
+.gx-cta h2{color:#fff;font-family:'Playfair Display';font-weight:500;font-size:clamp(32px,4.5vw,56px);letter-spacing:-0.02em;line-height:1.1;margin:0 0 14px}
+.gx-cta h2 em{color:var(--gold);font-style:italic;font-weight:400}
+.gx-cta p{color:rgba(255,255,255,0.78);font-family:'Hanken Grotesk';font-size:17px;margin:0 auto 32px;max-width:600px;line-height:1.55}
+.gx-cta .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.gx-cta .btn-gold{background:var(--gold);color:var(--ink)}
+.gx-cta .btn-gold:hover{background:#d6a64e;transform:translateY(-1px)}
+.gx-cta .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.30)}
+.gx-cta .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.05)}
+
+@media (prefers-reduced-motion:reduce){.gx-item{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important}}
+
+/* ─── 8. Service card image fix — make all 6 cards use the same .img frame ─── */
+.service-card .img,.service-card .illus{aspect-ratio:16/10;overflow:hidden;border-radius:12px 12px 0 0;background:var(--blue-soft)}
+.service-card .img img,.service-card .illus img{width:100%;height:100%;object-fit:cover;transition:transform 600ms var(--ease)}
+.service-card:hover .img img,.service-card:hover .illus img{transform:scale(1.04)}
